@@ -19,7 +19,7 @@ const {
   noindex = false,
 } = Astro.props;
 
-const siteUrl = Astro.site?.toString().replace(/\/$/, "") ?? "https://geriatra-napoli.vercel.app";
+const siteUrl = Astro.site?.toString().replace(/\/$/, "") ?? "https://geriatranapoli.com";
 const canonical = new URL(Astro.url.pathname, siteUrl).toString();
 const ogImageUrl = new URL(ogImage, siteUrl).toString();
 const isHome = Astro.url.pathname === "/" || Astro.url.pathname === "";

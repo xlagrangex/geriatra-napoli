@@ -45,10 +45,10 @@
 
 ## Risorse
 
-- Home: https://geriatra-napoli.vercel.app/
-- Privacy Policy: https://geriatra-napoli.vercel.app/privacy-policy
-- Cookie Policy: https://geriatra-napoli.vercel.app/cookie-policy
-- Termini & Condizioni: https://geriatra-napoli.vercel.app/termini-condizioni
+- Home: https://geriatranapoli.com/
+- Privacy Policy: https://geriatranapoli.com/privacy-policy
+- Cookie Policy: https://geriatranapoli.com/cookie-policy
+- Termini & Condizioni: https://geriatranapoli.com/termini-condizioni
 
 ## Note per AI
 

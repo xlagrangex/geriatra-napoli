@@ -7,7 +7,7 @@ import tailwindcss from '@tailwindcss/vite';
 import vercel from '@astrojs/vercel';
 
 export default defineConfig({
-  site: 'https://geriatra-napoli.vercel.app',
+  site: 'https://geriatranapoli.com',
   output: 'static',
   adapter: vercel({
     webAnalytics: { enabled: false },
