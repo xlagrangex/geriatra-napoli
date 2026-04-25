@@ -1,0 +1,122 @@
+---
+const year = new Date().getFullYear();
+
+const orari = [
+  { day: "Lun - Ven", time: "09.00 - 18.00" },
+  { day: "Sabato", time: "09.00 - 13.00" },
+  { day: "Domenica", time: "Chiuso" },
+];
+---
+
+<footer class="bg-[var(--color-brand)] text-white">
+  <div class="container-site py-20 grid md:grid-cols-3 gap-12 md:gap-16 items-start">
+    <div>
+      <img src="/logo/logo.png" alt="Logo Dott. Antonio Casale" class="w-[150px] h-[180px] object-cover" width="150" height="180" />
+    </div>
+    <div>
+      <h4 class="text-[20px] font-medium mb-7">Contatti</h4>
+      <p class="text-[15px] text-white/70 mb-4">Tel: <a href="tel:+393384979120" class="hover:text-white">338 497 9120</a></p>
+      <p class="text-[15px] text-white/70">Vomero (Napoli)</p>
+    </div>
+    <div>
+      <h4 class="text-[20px] font-medium mb-7">Giorni & Orari</h4>
+      <ul class="text-[15px] text-white/70">
+        {orari.map((o, i) => (
+          <li class={`flex justify-between py-3 ${i < orari.length - 1 ? "border-b border-white/10" : ""}`}>
+            <span>{o.day}</span>
+            <span>{o.time}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+  <div class="border-t border-white/10">
+    <div class="container-site py-6 flex flex-col md:flex-row justify-between items-center gap-4 text-[13px] text-white/60">
+      <p>© Dott. Antonio Casale — Specialista in Geriatria</p>
+      <div class="flex flex-wrap items-center gap-x-8 gap-y-3">
+        <a href="/termini-condizioni" class="hover:text-white">Termini & Condizioni</a>
+        <a href="/privacy-policy" class="hover:text-white">Privacy Policy</a>
+        <a href="/cookie-policy" class="hover:text-white">Cookie Policy</a>
+        <button type="button" data-cookie-prefs class="inline-flex items-center gap-2 rounded-full border border-white/25 px-4 py-1.5 text-[12px] hover:bg-white/10 transition-colors">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 12a9 9 0 1 1-9-9c.74 0 1.47.09 2.18.27a3 3 0 0 0 3.55 3.55c.18.71.27 1.44.27 2.18Z" />
+            <circle cx="9" cy="9" r="1" fill="currentColor" stroke="none" />
+            <circle cx="15" cy="13" r="1" fill="currentColor" stroke="none" />
+            <circle cx="9" cy="15" r="1" fill="currentColor" stroke="none" />
+          </svg>
+          Gestisci cookie
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="bg-white border-t border-black/10 py-3 font-[Inter_Variable,Inter,sans-serif]">
+    <a
+      href="https://bizstudio.it"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="flex items-center justify-center gap-2 group/biz"
+    >
+      <img
+        src="https://i.ibb.co/XkFvvj94/favicon.png"
+        alt="BizStudio"
+        width="21"
+        height="21"
+        class="w-[21px] h-[21px] transition-all duration-300 group-hover/biz:brightness-125 group-hover/biz:scale-110"
+        loading="lazy"
+      />
+      <span class="relative overflow-hidden h-5 inline-flex items-center whitespace-nowrap">
+        <span class="invisible inline-flex items-center text-xs" aria-hidden="true">
+          Sito realizzato con
+          <svg viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-3 mx-1" aria-hidden="true">
+            <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.29 1.51 4.04 3 5.5l7 7Z" />
+          </svg>
+          da&nbsp;<span style="font-style: italic; font-weight: 200; letter-spacing: -0.05em; text-transform: uppercase;">Biz</span><span style="font-weight: 700; letter-spacing: -0.05em;">Studio</span>
+        </span>
+        <span class="absolute inset-0 inline-flex items-center text-black/70 text-xs transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover/biz:-translate-y-full">
+          Sito realizzato con
+          <svg viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-3 mx-1 text-[#E53935]" aria-hidden="true">
+            <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.29 1.51 4.04 3 5.5l7 7Z" />
+          </svg>
+          da&nbsp;<span style="font-style: italic; font-weight: 200; letter-spacing: -0.05em; text-transform: uppercase;">Biz</span><span style="font-weight: 700; letter-spacing: -0.05em;">Studio</span>
+        </span>
+        <span aria-hidden="true" class="absolute inset-0 inline-flex items-center text-black text-xs translate-y-full transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover/biz:translate-y-0">
+          Sito realizzato con
+          <svg viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-3 mx-1 text-[#E53935]" aria-hidden="true">
+            <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.29 1.51 4.04 3 5.5l7 7Z" />
+          </svg>
+          da&nbsp;<span style="font-style: italic; font-weight: 200; letter-spacing: -0.05em; text-transform: uppercase;">Biz</span><span style="font-weight: 700; letter-spacing: -0.05em;">Studio</span>
+        </span>
+      </span>
+    </a>
+  </div>
+</footer>
+
+<script>
+  const initCookiePrefs = () => {
+    document.querySelectorAll<HTMLButtonElement>("[data-cookie-prefs]").forEach((btn) => {
+      if ((btn as any).__bound) return;
+      (btn as any).__bound = true;
+      btn.addEventListener("click", () => {
+        localStorage.removeItem("geriatra-cookie-consent");
+        const banner = document.getElementById("cookie-banner");
+        const backdrop = document.getElementById("cookie-backdrop");
+        if (banner) {
+          banner.hidden = false;
+          requestAnimationFrame(() => banner.classList.add("is-visible"));
+        }
+        if (backdrop) {
+          backdrop.hidden = false;
+          requestAnimationFrame(() => backdrop.classList.add("is-visible"));
+        }
+      });
+    });
+  };
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initCookiePrefs, { once: true });
+  } else {
+    initCookiePrefs();
+  }
+  document.addEventListener("astro:page-load", initCookiePrefs);
+</script>

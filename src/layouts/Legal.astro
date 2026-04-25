@@ -1,0 +1,64 @@
+---
+import Base from "./Base.astro";
+
+interface Props {
+  title: string;
+  updated?: string;
+}
+
+const { title, updated = "Aprile 2026" } = Astro.props;
+---
+
+<Base title={`${title} — Dott. Antonio Casale`} description={title}>
+  <section class="px-3 md:px-4">
+    <div class="bg-[var(--color-brand)] text-white rounded-b-[16px] md:rounded-b-[20px]">
+      <div class="container-site pt-44 md:pt-52 pb-16 md:pb-20">
+        <span class="kicker" style="background: rgba(255,255,255,0.12); color: #ffffff;">Informazioni legali</span>
+        <h1 class="mt-6 text-4xl md:text-6xl font-normal leading-[1.05] tracking-tight">{title}</h1>
+        <p class="mt-5 text-white/75 text-sm">Ultimo aggiornamento: {updated}</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container-site max-w-3xl">
+      <article class="legal-prose">
+        <slot />
+      </article>
+    </div>
+  </section>
+</Base>
+
+<style is:global>
+  .legal-prose {
+    color: var(--color-brand);
+    font-size: 16px;
+    line-height: 1.7;
+  }
+  .legal-prose h2 {
+    font-family: var(--font-display);
+    font-size: 28px;
+    line-height: 1.2;
+    margin-top: 48px;
+    margin-bottom: 14px;
+    color: var(--color-brand);
+    font-weight: 500;
+  }
+  .legal-prose h2:first-child { margin-top: 0; }
+  .legal-prose h3 {
+    font-family: var(--font-sans);
+    font-size: 18px;
+    margin-top: 28px;
+    margin-bottom: 10px;
+    color: var(--color-brand);
+    font-weight: 600;
+    letter-spacing: -0.005em;
+  }
+  .legal-prose p { margin: 0 0 14px; color: rgb(14 58 95 / 0.85); }
+  .legal-prose ul, .legal-prose ol { margin: 0 0 18px; padding-left: 22px; color: rgb(14 58 95 / 0.85); }
+  .legal-prose li { margin-bottom: 6px; }
+  .legal-prose a { color: var(--color-brand); text-decoration: underline; text-underline-offset: 2px; }
+  .legal-prose a:hover { color: #5AB0F2; }
+  .legal-prose strong { color: var(--color-brand); font-weight: 600; }
+  .legal-prose hr { border: none; border-top: 1px solid rgb(14 58 95 / 0.12); margin: 32px 0; }
+</style>
