@@ -1,0 +1,113 @@
+---
+import Base from "./Base.astro";
+
+interface Props {
+  title: string;
+  description: string;
+  slug: string;
+  publishDate: string;
+  modifiedDate?: string;
+  readingMinutes?: number;
+}
+
+const { title, description, slug, publishDate, modifiedDate, readingMinutes } = Astro.props;
+const wa = "https://wa.me/393384979120";
+
+const siteUrl = "https://geriatranapoli.com";
+const pageUrl = `${siteUrl}/blog/${slug}`;
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "MedicalWebPage",
+  "@id": pageUrl,
+  "url": pageUrl,
+  "name": title,
+  "headline": title,
+  "description": description,
+  "inLanguage": "it-IT",
+  "datePublished": publishDate,
+  "dateModified": modifiedDate ?? publishDate,
+  "author": {
+    "@type": "Physician",
+    "name": "Dott. Antonio Casale",
+    "medicalSpecialty": "Geriatric",
+    "url": siteUrl + "/",
+  },
+  "publisher": {
+    "@type": "Physician",
+    "name": "Dott. Antonio Casale",
+    "url": siteUrl + "/",
+  },
+  "mainEntityOfPage": pageUrl,
+  "isAccessibleForFree": true,
+  "audience": { "@type": "Audience", "audienceType": "Patients and caregivers" },
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": `${siteUrl}/` },
+    { "@type": "ListItem", "position": 2, "name": "Blog", "item": `${siteUrl}/blog` },
+    { "@type": "ListItem", "position": 3, "name": title, "item": pageUrl },
+  ],
+};
+---
+
+<Base title={`${title} | Dott. Antonio Casale`} description={description}>
+  <section class="px-3 md:px-4">
+    <div class="relative bg-[var(--color-brand)] text-white overflow-hidden rounded-b-[16px] md:rounded-b-[20px]">
+      <div class="container-site pt-44 md:pt-52 pb-20 md:pb-24">
+        <a href="/blog" class="inline-flex items-center gap-2 text-sm text-white/70 hover:text-white transition-colors mb-6">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+          Tutti gli articoli
+        </a>
+        <span class="kicker" style="background: rgba(255,255,255,0.12); color: #ffffff;">Blog · Geriatria</span>
+        <h1 class="mt-6 text-4xl md:text-5xl font-normal leading-[1.1] tracking-tight max-w-3xl">{title}</h1>
+        <div class="mt-6 flex flex-wrap items-center gap-4 text-sm text-white/70">
+          <span>Dott. Antonio Casale, Geriatra</span>
+          <span>·</span>
+          <time datetime={publishDate}>{new Date(publishDate).toLocaleDateString("it-IT", { day: "numeric", month: "long", year: "numeric" })}</time>
+          {readingMinutes && (
+            <>
+              <span>·</span>
+              <span>{readingMinutes} min di lettura</span>
+            </>
+          )}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container-site max-w-3xl">
+      <article class="legal-prose">
+        <slot />
+
+        <hr />
+
+        <h2>Hai bisogno di una visita geriatrica?</h2>
+        <p>
+          Per richiedere una valutazione o ricevere informazioni sui servizi offerti, è possibile contattare direttamente
+          lo studio via WhatsApp o telefonicamente al <a href="tel:+393384979120">338 497 9120</a>.
+          Il servizio è attivo a Napoli, in provincia, sulle isole del Golfo e in zone adiacenti su richiesta.
+        </p>
+        <p style="margin-top: 24px;">
+          <a href={wa} target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 8px; background: #5AB0F2; color: white; padding: 12px 24px; border-radius: 8px; font-weight: 500; text-decoration: none;">
+            Prenota su WhatsApp →
+          </a>
+        </p>
+
+        <h2>Articoli correlati</h2>
+        <ul>
+          <li><a href="/blog/quando-rivolgersi-al-geriatra">Quando rivolgersi al geriatra: i segnali da non ignorare</a></li>
+          <li><a href="/blog/sintomi-iniziali-demenza-anziano">Demenza nell'anziano: come riconoscere i sintomi iniziali</a></li>
+          <li><a href="/blog/politerapia-anziano-rischi-gestione">Politerapia nell'anziano: rischi e gestione clinica</a></li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+</Base>

@@ -1,0 +1,69 @@
+---
+import Base from "../../layouts/Base.astro";
+
+const articles = [
+  {
+    slug: "quando-rivolgersi-al-geriatra",
+    title: "Quando rivolgersi al geriatra: i segnali da non ignorare",
+    description: "Sette situazioni cliniche e comportamentali in cui è opportuno chiedere una valutazione geriatrica specialistica. Una guida pratica per familiari e caregiver.",
+    date: "2026-04-25",
+    minutes: 6,
+  },
+  {
+    slug: "sintomi-iniziali-demenza-anziano",
+    title: "Demenza nell'anziano: come riconoscere i sintomi iniziali",
+    description: "I primi segnali che possono indicare un decadimento cognitivo iniziale: cosa osservare, quando preoccuparsi e a chi rivolgersi per una valutazione completa.",
+    date: "2026-04-25",
+    minutes: 7,
+  },
+  {
+    slug: "politerapia-anziano-rischi-gestione",
+    title: "Politerapia nell'anziano: rischi e gestione clinica",
+    description: "Quando un paziente assume più farmaci contemporaneamente aumentano interazioni ed effetti avversi. Come il geriatra rivede e ottimizza la terapia.",
+    date: "2026-04-25",
+    minutes: 8,
+  },
+];
+---
+
+<Base
+  title="Blog di Geriatria | Dott. Antonio Casale — Geriatra a Napoli"
+  description="Articoli di approfondimento sulla geriatria, l'assistenza all'anziano e la salute della terza età. A cura del Dott. Antonio Casale, geriatra a Napoli."
+>
+  <section class="px-3 md:px-4">
+    <div class="relative bg-[var(--color-brand)] text-white overflow-hidden rounded-b-[16px] md:rounded-b-[20px]">
+      <div class="container-site pt-44 md:pt-52 pb-20 md:pb-24">
+        <span class="kicker" style="background: rgba(255,255,255,0.12); color: #ffffff;">Blog · Geriatria</span>
+        <h1 class="mt-6 text-4xl md:text-6xl font-normal leading-[1.05] tracking-tight max-w-3xl">Approfondimenti di geriatria</h1>
+        <p class="mt-7 text-base md:text-lg text-white/85 leading-relaxed max-w-2xl">
+          Articoli pratici per pazienti, familiari e caregiver. Quando rivolgersi al geriatra, come riconoscere i primi
+          sintomi di una patologia, come gestire farmaci e fragilità.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container-site max-w-4xl">
+      <ul class="grid gap-6">
+        {articles.map((a) => (
+          <li>
+            <a href={`/blog/${a.slug}`} class="group block bg-white rounded-xl p-7 md:p-9 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+              <div class="flex items-center gap-3 text-xs text-[#5AB0F2] font-medium uppercase tracking-wider mb-4">
+                <time datetime={a.date}>{new Date(a.date).toLocaleDateString("it-IT", { day: "numeric", month: "long", year: "numeric" })}</time>
+                <span>·</span>
+                <span>{a.minutes} min di lettura</span>
+              </div>
+              <h2 class="text-2xl md:text-[28px] font-medium leading-tight text-[var(--color-brand)] mb-3 group-hover:text-[#5AB0F2] transition-colors">{a.title}</h2>
+              <p class="text-[15px] md:text-base text-[var(--color-brand)]/75 leading-relaxed">{a.description}</p>
+              <span class="inline-flex items-center gap-2 mt-5 text-sm font-medium text-[var(--color-brand)]">
+                Leggi l'articolo
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transition-transform group-hover:translate-x-1"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+              </span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+</Base>
