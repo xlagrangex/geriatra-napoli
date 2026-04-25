@@ -8,12 +8,21 @@ import { ClientRouter } from "astro:transitions";
 interface Props {
   title?: string;
   description?: string;
+  ogImage?: string;
+  noindex?: boolean;
 }
 
 const {
-  title = "Geriatra Napoli — Visite geriatriche specialistiche",
-  description = "Visite geriatriche, valutazione multidimensionale e cura della persona anziana a Napoli.",
+  title = "Geriatra a Napoli — Dott. Antonio Casale | Visite a domicilio",
+  description = "Dott. Antonio Casale, geriatra a Napoli (Vomero). Visite a domicilio, valutazione multidimensionale, urgenze non emergenziali e cura dell'anziano. Tel: 338 497 9120.",
+  ogImage = "/wp-content/uploads/2025/06/Group-364-9.png",
+  noindex = false,
 } = Astro.props;
+
+const siteUrl = Astro.site?.toString().replace(/\/$/, "") ?? "https://geriatra-napoli.vercel.app";
+const canonical = new URL(Astro.url.pathname, siteUrl).toString();
+const ogImageUrl = new URL(ogImage, siteUrl).toString();
+const isHome = Astro.url.pathname === "/" || Astro.url.pathname === "";
 ---
 
 <!doctype html>
@@ -22,9 +31,140 @@ const {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
+    {!noindex && <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />}
+
     <link rel="icon" type="image/png" href="/favicon.png" />
     <link rel="apple-touch-icon" href="/favicon.png" />
     <title>{title}</title>
+
+    <!-- Open Graph -->
+    <meta property="og:type" content={isHome ? "website" : "article"} />
+    <meta property="og:locale" content="it_IT" />
+    <meta property="og:site_name" content="Dott. Antonio Casale — Geriatra a Napoli" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:alt" content="Dott. Antonio Casale, geriatra a Napoli" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageUrl} />
+
+    <!-- Geo meta (local SEO) -->
+    <meta name="geo.region" content="IT-NA" />
+    <meta name="geo.placename" content="Napoli, Vomero" />
+    <meta name="geo.position" content="40.8421;14.2299" />
+    <meta name="ICBM" content="40.8421, 14.2299" />
+
+    <!-- Author / publisher -->
+    <meta name="author" content="Dott. Antonio Casale" />
+
+    <!-- Structured data: Physician + WebSite (only on home) -->
+    {isHome && (
+      <script type="application/ld+json" set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Physician",
+            "@id": `${siteUrl}/#physician`,
+            "name": "Dott. Antonio Casale",
+            "alternateName": ["Geriatra Napoli", "Dottor Antonio Casale", "Antonio Casale Geriatra"],
+            "description": "Medico chirurgo specialista in Geriatria a Napoli. Visite specialistiche e a domicilio per la cura della persona anziana.",
+            "url": siteUrl + "/",
+            "image": new URL("/wp-content/uploads/2025/06/Group-364-9.png", siteUrl).toString(),
+            "logo": new URL("/logo/logo.png", siteUrl).toString(),
+            "telephone": "+39-338-497-9120",
+            "medicalSpecialty": "Geriatric",
+            "priceRange": "€€",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Vomero",
+              "addressLocality": "Napoli",
+              "addressRegion": "NA",
+              "postalCode": "80129",
+              "addressCountry": "IT"
+            },
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": 40.8421,
+              "longitude": 14.2299
+            },
+            "areaServed": [
+              { "@type": "City", "name": "Napoli" },
+              { "@type": "AdministrativeArea", "name": "Provincia di Napoli" },
+              { "@type": "Place", "name": "Capri" },
+              { "@type": "Place", "name": "Ischia" },
+              { "@type": "Place", "name": "Procida" }
+            ],
+            "openingHoursSpecification": [
+              {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+                "opens": "09:00",
+                "closes": "18:00"
+              },
+              {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": "Saturday",
+                "opens": "09:00",
+                "closes": "13:00"
+              }
+            ],
+            "availableService": [
+              { "@type": "MedicalProcedure", "name": "Visita geriatrica a domicilio" },
+              { "@type": "MedicalProcedure", "name": "Gestione delle comorbidità e trattamenti plurifarmacologici" },
+              { "@type": "MedicalProcedure", "name": "Cure palliative domiciliari" },
+              { "@type": "MedicalProcedure", "name": "Prevenzione delle fragilità nell'anziano" },
+              { "@type": "MedicalProcedure", "name": "Urgenze non emergenziali dell'anziano" },
+              { "@type": "MedicalProcedure", "name": "Valutazione multidimensionale geriatrica" }
+            ],
+            "knowsAbout": [
+              "Geriatria",
+              "Demenze",
+              "Alzheimer",
+              "Parkinson",
+              "Cure palliative",
+              "Fragilità dell'anziano",
+              "Politerapia farmacologica",
+              "Valutazione multidimensionale geriatrica"
+            ],
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "telephone": "+39-338-497-9120",
+              "contactType": "appointment",
+              "areaServed": "IT",
+              "availableLanguage": "Italian"
+            }
+          },
+          {
+            "@type": "WebSite",
+            "@id": `${siteUrl}/#website`,
+            "url": siteUrl + "/",
+            "name": "Dott. Antonio Casale — Geriatra a Napoli",
+            "inLanguage": "it-IT",
+            "publisher": { "@id": `${siteUrl}/#physician` }
+          },
+          {
+            "@type": "FAQPage",
+            "@id": `${siteUrl}/#faq`,
+            "mainEntity": [
+              { "@type": "Question", "name": "Come si svolge una visita geriatrica?", "acceptedAnswer": { "@type": "Answer", "text": "Durante la visita vengono valutate le condizioni cliniche generali, i farmaci assunti, le abitudini quotidiane e le eventuali difficoltà. Segue un piano personalizzato in base ai bisogni." } },
+              { "@type": "Question", "name": "Serve la prescrizione del medico di base?", "acceptedAnswer": { "@type": "Answer", "text": "No, è possibile richiedere direttamente una visita geriatrica senza impegnativa del medico curante." } },
+              { "@type": "Question", "name": "In quanto tempo viene fissata la visita?", "acceptedAnswer": { "@type": "Answer", "text": "Generalmente in giornata o entro poche ore dalla richiesta, in base alla disponibilità e alla tipologia di bisogno." } },
+              { "@type": "Question", "name": "In quali zone è disponibile il servizio domiciliare?", "acceptedAnswer": { "@type": "Answer", "text": "Il servizio è attivo a Napoli, nella provincia, sulle isole e, su richiesta, anche in zone adiacenti da concordare." } },
+              { "@type": "Question", "name": "È possibile prenotare per un genitore anche se si vive in un'altra città?", "acceptedAnswer": { "@type": "Answer", "text": "Sì, è possibile. È consentito prenotare il servizio per un genitore anche se si risiede in un'altra città." } },
+              { "@type": "Question", "name": "Dopo la visita, è previsto un supporto continuo?", "acceptedAnswer": { "@type": "Answer", "text": "Sì, viene garantita la disponibilità per chiarimenti, monitoraggio dell'evoluzione clinica e aggiornamenti sul piano terapeutico." } }
+            ]
+          }
+        ]
+      })} />
+    )}
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Castoro:ital@0;1&display=swap" />

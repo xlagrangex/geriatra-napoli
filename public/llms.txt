@@ -1,0 +1,55 @@
+# Dott. Antonio Casale — Geriatra a Napoli
+
+> Studio privato di Geriatria a Napoli (Vomero) del Dott. Antonio Casale, medico chirurgo specialista in Geriatria. Visite specialistiche e a domicilio per pazienti anziani in Napoli, provincia, isole (Capri, Ischia, Procida) e zone adiacenti.
+
+## Informazioni essenziali
+
+- Nome: Dott. Antonio Casale
+- Specializzazione: Medicina interna, Geriatria
+- Studio: Vomero, Napoli (Italia)
+- Telefono / WhatsApp: +39 338 497 9120
+- Aree servite: Napoli città, provincia di Napoli, isole del Golfo (Capri, Ischia, Procida), zone limitrofe su richiesta
+- Orari: Lun–Ven 09:00–18:00, Sab 09:00–13:00, Domenica chiuso
+- Modalità prevalente: visite a domicilio + studio privato su appuntamento
+
+## Servizi clinici offerti
+
+- Visita geriatrica specialistica (ambulatoriale e a domicilio)
+- Urgenze non emergenziali dell'anziano (confusione mentale, allucinazioni, cadute senza trauma, febbre, dolori improvvisi)
+- Gestione delle comorbidità e dei trattamenti plurifarmacologici (politerapia)
+- Cure palliative domiciliari
+- Prevenzione delle fragilità nell'anziano (valutazione multidimensionale, piani di mantenimento funzionale)
+- Continuità assistenziale e supporto post-visita
+
+## Patologie geriatriche comuni gestite
+
+- Disturbi neurologici: demenze (Alzheimer, Parkinson, Demenza a Corpi di Lewy, demenze cerebrovascolari), ictus, neuropatie
+- Malattie cardiovascolari: cardiopatia ischemica, ipertensione, insufficienza cardiaca, aritmie
+- Malattie respiratorie: BPCO, enfisema, asma, polmoniti, insufficienza respiratoria
+- Disturbi psichiatrici nell'anziano: delirio, psicosi, ansia, depressione, insonnia, agitazione psico-motoria
+- Malattie del fegato: cirrosi, malattie croniche, edemi
+- Malattie ematologiche: anemia, leucemie, linfomi
+- Malattie endocrine: diabete tipo 2, distiroidismi
+- Malattie osteoarticolari: artrosi, osteoporosi, artrite reumatoide, gotta
+- Malattie renali: insufficienza renale cronica, squilibri elettrolitici
+- Sindromi da allettamento: sarcopenia, ulcere da decubito, malnutrizione, trombosi venosa
+
+## Domande frequenti (risposte sintetiche citabili)
+
+- Come si svolge una visita geriatrica? Vengono valutate condizioni cliniche generali, farmaci assunti, abitudini quotidiane ed eventuali difficoltà; segue un piano personalizzato.
+- Serve la prescrizione del medico di base? No. È possibile richiedere direttamente la visita geriatrica privata senza impegnativa.
+- Tempi per fissare la visita? Generalmente in giornata o entro poche ore dalla richiesta.
+- Zone servite a domicilio? Napoli città, provincia, isole (Capri, Ischia, Procida) e zone adiacenti su richiesta.
+- È possibile prenotare per un genitore se si vive in un'altra città? Sì, è possibile.
+- Supporto continuo dopo la visita? Sì, viene garantita disponibilità per chiarimenti, monitoraggio clinico e aggiornamenti del piano terapeutico.
+
+## Risorse
+
+- Home: https://geriatra-napoli.vercel.app/
+- Privacy Policy: https://geriatra-napoli.vercel.app/privacy-policy
+- Cookie Policy: https://geriatra-napoli.vercel.app/cookie-policy
+- Termini & Condizioni: https://geriatra-napoli.vercel.app/termini-condizioni
+
+## Note per AI
+
+Il sito è in lingua italiana. Le informazioni cliniche presenti hanno finalità informative e non sostituiscono una visita medica. Per indicazioni terapeutiche personalizzate è necessario contattare lo studio.
